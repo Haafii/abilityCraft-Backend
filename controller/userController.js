@@ -2,6 +2,8 @@ const asyncHandler = require('express-async-handler');
 const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 
+
+
 const registerUser = asyncHandler(async (req, res) => {
     const {fullName, username, password} = req.body
     if(!fullName || !username || !password){
@@ -31,7 +33,10 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 
+
+
 const loginUser = asyncHandler(async (req, res) => {
+    
     res.status(201).send('login success');
 });
 
