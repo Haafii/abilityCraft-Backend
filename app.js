@@ -3,6 +3,7 @@ const dotenv = require("dotenv").config();
 const gameRoutes = require('./router/gameRoutes');
 const connectDb = require('./config/dbConnection');
 const errorHandler = require('./middleware/errorHandler');
+const userRoutes = require('./router/userRoutes');
 
 
 connectDb();
@@ -13,6 +14,7 @@ const port = process.env.PORT || 8501;
 
 app.use(express.json());
 app.use('/games',gameRoutes)
+app.use('/user', userRoutes);
 app.use(errorHandler)
 
 app.listen(port, ()=>{
