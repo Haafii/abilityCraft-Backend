@@ -11,6 +11,7 @@ const loginUser = asyncHandler(async (req, res) => {
     res.status(201).send('login success');
 });
 
+
 const currentUser = asyncHandler(async (req, res) => {
     res.status(201).send('current user');
 });
