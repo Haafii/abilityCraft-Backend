@@ -55,10 +55,9 @@ const loginUser = asyncHandler(async (req, res) => {
     res.status(401)
     throw new Error("Invalid username or password");
   }
-//   res.status(201).send("login success");
 });
 const currentUser = asyncHandler(async (req, res) => {
-  res.status(201).send("current user");
+    res.json(req.user)
 });
 
 module.exports = { registerUser, loginUser, currentUser };
