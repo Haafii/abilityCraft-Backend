@@ -17,4 +17,17 @@ const updateSpeechTraining = asyncHandler(async (req, res) => {
     res.status(201).send(speechTraining);
 });
 
-module.exports = { updateSpeechTraining }
+
+
+const getSpeechTraining = asyncHandler(async (req, res) => {
+    const username = req.params.username;
+    const data = await SpeechTraining.find({ username: username });
+    if (!data) {
+        res.status(404);
+        throw new Error('No details found for the username: ' + username);
+    }
+    res.status(200).send(data);
+});
+
+
+module.exports = { updateSpeechTraining, getSpeechTraining }
