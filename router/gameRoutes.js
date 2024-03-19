@@ -5,7 +5,7 @@ const { updateSpeechTraining, getSpeechTraining } = require('../controller/speec
 const router  = express.Router();
 
 router.post('/basicetiquette', updateBasicEtiquette);
-router.post('/memorytest',updateMemoryTest);
+router.post('/aC',updateMemoryTest);
 router.post('/speechtraining', updateSpeechTraining);
 router.get('/getbasicetiquette/:username', getBasicEtiquette)
 router.get('/getmemorytest/:username', getMemoryTest)
