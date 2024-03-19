@@ -20,4 +20,16 @@ const updateMemoryTest = asyncHandler(async (req, res) => {
 });
 
 
-module.exports = { updateMemoryTest }
+
+const getMemoryTest = asyncHandler(async (req, res) => {
+    const username = req.params.username;
+    const data = await MemoryTest.find({ username: username });
+    if (!data) {
+        res.status(404);
+        throw new Error('No details found for the username: ' + username);
+    }
+    res.status(200).send(data);
+});
+
+
+module.exports = { updateMemoryTest, getMemoryTest }
