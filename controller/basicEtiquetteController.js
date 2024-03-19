@@ -19,4 +19,15 @@ const updateBasicEtiquette = asyncHandler(async (req, res) => {
     res.status(201).send(basicEtiquette);
 })
 
-module.exports = { updateBasicEtiquette }
+const getBasicEtiquette = asyncHandler(async (req, res) => {
+    const username = req.params.username;
+    const data = await BasicEtiquette.find({ username: username });
+    if (!data) {
+        res.status(404);
+        throw new Error('No details found for the username: ' + username);
+    }
+    res.status(200).send(data);
+});
+
+
+module.exports = { updateBasicEtiquette, getBasicEtiquette }
