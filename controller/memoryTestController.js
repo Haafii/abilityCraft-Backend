@@ -4,7 +4,7 @@ const MemoryTest = require('../models/memoryTestModel');
 const updateMemoryTest = asyncHandler(async (req, res) => {
     console.log(req.body);
     const {username, difficulty, timeToComplete, noOfWrong, totalNoOfAttempt, score } = req.body;
-    if(!username || !timeToComplete || !noOfWrong || !totalNoOfAttempt || !score || !difficulty){
+    if(!username || !timeToComplete || !difficulty){
         res.status(400);
         throw new Error('All fields are required');
     }
