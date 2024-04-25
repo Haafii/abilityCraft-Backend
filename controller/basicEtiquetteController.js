@@ -5,7 +5,7 @@ const BasicEtiquette = require('../models/basicEtiquetteModel');
 const updateBasicEtiquette = asyncHandler(async (req, res) => {
     console.log(req.body);
     const {username, timeToComplete, noOfWrong, totalNoOfAttempt, score } = req.body;
-    if(!username || !timeToComplete || !noOfWrong || !totalNoOfAttempt || !score){
+    if(!username || !timeToComplete || !totalNoOfAttempt || !score){
         res.status(400);
         throw new Error('All fields are required');
     }
